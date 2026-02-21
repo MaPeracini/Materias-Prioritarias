@@ -55,7 +55,9 @@ h2 { color:#931543; }
 <div class="text-center">
 <button class="btn btn-main" onclick="calcular()">Calcular</button>
 </div>
-
+<div class="text-center mt-3">
+<button class="btn btn-outline-secondary" onclick="adicionarMateria()">+ Adicionar Matéria</button>
+</div>
 </div>
 </div>
 
@@ -78,6 +80,21 @@ function calcular() {
     let tbody = document.querySelector("#tabela tbody");
     tbody.innerHTML = "";
     ordenadas.forEach(l => tbody.appendChild(l));
+}
+
+function adicionarMateria() {
+    let tbody = document.querySelector("#tabela tbody");
+
+    let novaLinha = document.createElement("tr");
+
+    novaLinha.innerHTML = `
+        <td><input class="form-control" placeholder="Nova matéria"></td>
+        <td><input type="number" class="form-control peso" value="1"></td>
+        <td><input type="number" class="form-control dif" value="1"></td>
+        <td class="prioridade">—</td>
+    `;
+
+    tbody.appendChild(novaLinha);
 }
 </script>
 
